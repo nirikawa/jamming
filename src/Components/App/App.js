@@ -24,7 +24,6 @@ class App extends React.Component{
   }
   addTrack(track){
     const playlistTracks = this.state.playlistTracks;
-    let isNew = true;
     if(playlistTracks.find(savedTrack => savedTrack.id === track.id)){
       return;
     }
@@ -84,7 +83,7 @@ class App extends React.Component{
     const previewURL = track.preview;
     if(this.state.audio && !this.state.audio.ended){
         // if there is an audio being played and it hasn't ended playing
-        if(this.state.audio.src == previewURL){
+        if(this.state.audio.src === previewURL){
             // if the passed track is the same as the current track then pause the current track and clear the audio.
             this.state.audio.pause();
             this.setState({audio: undefined});
